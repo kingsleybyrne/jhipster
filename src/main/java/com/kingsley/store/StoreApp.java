@@ -20,6 +20,8 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collection;
 
+//@ComponentScan
+//@EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
 @SpringBootApplication
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
 public class StoreApp {
