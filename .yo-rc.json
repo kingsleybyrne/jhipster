@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.kingsley.store",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.6.0",
+    "applicationType": "monolith",
+    "baseName": "store",
+    "packageName": "com.kingsley.store",
+    "packageFolder": "com/kingsley/store",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MmU2Nzg0YWRlMzE5NzVhZTU5NWEzNWQxNmExNDhkOWUxOGUyNDYwYmI0MTFkMTI4MWY0OGMzM2I5MzRhMDE5MDQ1MGJkMzA4ODYyNjk1NTgyYzkzOGQ1NjhmYWMwYmRmMDE3ZjY3MTIyMzBmYzVmYTYzOGUxMGJkMzNkYjg0YzQ=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ]
+  }
+}
