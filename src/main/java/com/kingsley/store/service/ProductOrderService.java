@@ -2,6 +2,8 @@ package com.kingsley.store.service;
 
 import com.kingsley.store.domain.ProductOrder;
 import com.kingsley.store.repository.ProductOrderRepository;
+import com.kingsley.store.security.AuthoritiesConstants;
+import com.kingsley.store.security.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +49,15 @@ public class ProductOrderService {
     @Transactional(readOnly = true)
     public Page<ProductOrder> findAll(Pageable pageable) {
         log.debug("Request to get all ProductOrders");
-        return productOrderRepository.findAll(pageable);
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN))
+        {
+            return productOrderRepository.findAll(pageable);
+        } else
+            return productOrderRepository.findAllByCustomerUserLogin(
+                SecurityUtils.getCurrentUserLogin().get(),
+                pageable
+            );
+//        return productOrderRepository.findAll(pageable);
     }
 
 
@@ -58,9 +68,17 @@ public class ProductOrderService {
      * @return the entity
      */
     @Transactional(readOnly = true)
-    public Optional<ProductOrder> findOne(Long id) {
+    public ProductOrder findOne(Long id) {
         log.debug("Request to get ProductOrder : {}", id);
-        return productOrderRepository.findById(id);
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN))
+        {
+            return productOrderRepository.findOne(id);
+        } else {
+            return productOrderRepository.findOneByIdAndCustomerUserLogin(
+                id,
+                SecurityUtils.getCurrentUserLogin().get()
+            );
+        }
     }
 
     /**
