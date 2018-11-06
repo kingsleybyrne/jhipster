@@ -68,16 +68,16 @@ public class ProductOrderService {
      * @return the entity
      */
     @Transactional(readOnly = true)
-    public ProductOrder findOne(Long id) {
+    public Optional<ProductOrder> findOne(Long id) {
         log.debug("Request to get ProductOrder : {}", id);
         if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN))
         {
-            return productOrderRepository.findOne(id);
+            return productOrderRepository.findById(id);
         } else {
-            return productOrderRepository.findOneByIdAndCustomerUserLogin(
+            return Optional.ofNullable(productOrderRepository.findOneByIdAndCustomerUserLogin(
                 id,
                 SecurityUtils.getCurrentUserLogin().get()
-            );
+            ));
         }
     }
 
