@@ -3,6 +3,8 @@ package com.kingsley.store.web.rest;
 import com.kingsley.store.StoreApp;
 
 import com.kingsley.store.domain.OrderItem;
+import com.kingsley.store.domain.Product;
+import com.kingsley.store.domain.ProductOrder;
 import com.kingsley.store.repository.OrderItemRepository;
 import com.kingsley.store.service.OrderItemService;
 import com.kingsley.store.web.rest.errors.ExceptionTranslator;
@@ -95,6 +97,16 @@ public class OrderItemResourceIntTest {
             .quantity(DEFAULT_QUANTITY)
             .totalPrice(DEFAULT_TOTAL_PRICE)
             .status(DEFAULT_STATUS);
+        // Add required entity
+        Product product = ProductResourceIntTest.createEntity(em);
+        em.persist(product);
+        em.flush();
+        orderItem.setProduct(product);
+        // Add required entity
+        ProductOrder productOrder = ProductOrderResourceIntTest.createEntity(em);
+        em.persist(productOrder);
+        em.flush();
+        orderItem.setOrder(productOrder);
         return orderItem;
     }
 

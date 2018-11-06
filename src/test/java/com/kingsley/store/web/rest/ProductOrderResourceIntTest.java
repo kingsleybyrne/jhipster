@@ -3,6 +3,7 @@ package com.kingsley.store.web.rest;
 import com.kingsley.store.StoreApp;
 
 import com.kingsley.store.domain.ProductOrder;
+import com.kingsley.store.domain.Customer;
 import com.kingsley.store.repository.ProductOrderRepository;
 import com.kingsley.store.service.ProductOrderService;
 import com.kingsley.store.web.rest.errors.ExceptionTranslator;
@@ -96,6 +97,11 @@ public class ProductOrderResourceIntTest {
             .placedDate(DEFAULT_PLACED_DATE)
             .status(DEFAULT_STATUS)
             .code(DEFAULT_CODE);
+        // Add required entity
+        Customer customer = CustomerResourceIntTest.createEntity(em);
+        em.persist(customer);
+        em.flush();
+        productOrder.setCustomer(customer);
         return productOrder;
     }
 
