@@ -3,6 +3,7 @@ package com.kingsley.store.web.rest;
 import com.kingsley.store.StoreApp;
 
 import com.kingsley.store.domain.Invoice;
+import com.kingsley.store.domain.ProductOrder;
 import com.kingsley.store.repository.InvoiceRepository;
 import com.kingsley.store.service.InvoiceService;
 import com.kingsley.store.web.rest.errors.ExceptionTranslator;
@@ -110,6 +111,11 @@ public class InvoiceResourceIntTest {
             .paymentMethod(DEFAULT_PAYMENT_METHOD)
             .paymentDate(DEFAULT_PAYMENT_DATE)
             .paymentAmount(DEFAULT_PAYMENT_AMOUNT);
+        // Add required entity
+        ProductOrder productOrder = ProductOrderResourceIntTest.createEntity(em);
+        em.persist(productOrder);
+        em.flush();
+        invoice.setOrder(productOrder);
         return invoice;
     }
 
