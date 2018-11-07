@@ -62,7 +62,7 @@ public class ProductResourceIntTest {
 
     @Autowired
     private ProductRepository productRepository;
-    
+
     @Autowired
     private ProductService productService;
 

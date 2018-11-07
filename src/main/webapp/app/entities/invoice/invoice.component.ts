@@ -17,6 +17,7 @@ import { InvoiceService } from './invoice.service';
 export class InvoiceComponent implements OnInit, OnDestroy {
     currentAccount: any;
     invoices: IInvoice[];
+    // code: any;
     error: any;
     success: any;
     eventSubscriber: Subscription;

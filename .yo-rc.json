@@ -4,7 +4,7 @@
       "packageName": "com.kingsley.store",
       "nativeLanguage": "en"
     },
-    "jhipsterVersion": "5.6.0",
+    "jhipsterVersion": "5.6.1",
     "applicationType": "monolith",
     "baseName": "store",
     "packageName": "com.kingsley.store",
@@ -32,6 +32,8 @@
     "nativeLanguage": "en",
     "languages": [
       "en"
-    ]
+    ],
+    "herokuAppName": "heroku-store",
+    "herokuDeployType": "jar"
   }
 }

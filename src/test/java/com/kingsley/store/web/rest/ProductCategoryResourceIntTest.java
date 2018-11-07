@@ -48,7 +48,7 @@ public class ProductCategoryResourceIntTest {
 
     @Autowired
     private ProductCategoryRepository productCategoryRepository;
-    
+
     @Autowired
     private ProductCategoryService productCategoryService;
 
