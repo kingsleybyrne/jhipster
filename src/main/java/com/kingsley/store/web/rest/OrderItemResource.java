@@ -50,6 +50,7 @@ public class OrderItemResource {
      */
     @PostMapping("/order-items")
     @Timed
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<OrderItem> createOrderItem(@Valid @RequestBody OrderItem orderItem) throws URISyntaxException {
         log.debug("REST request to save OrderItem : {}", orderItem);
         if (orderItem.getId() != null) {
@@ -72,6 +73,7 @@ public class OrderItemResource {
      */
     @PutMapping("/order-items")
     @Timed
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<OrderItem> updateOrderItem(@Valid @RequestBody OrderItem orderItem) throws URISyntaxException {
         log.debug("REST request to update OrderItem : {}", orderItem);
         if (orderItem.getId() == null) {
@@ -91,6 +93,7 @@ public class OrderItemResource {
      */
     @GetMapping("/order-items")
     @Timed
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<List<OrderItem>> getAllOrderItems(Pageable pageable) {
         log.debug("REST request to get a page of OrderItems");
         Page<OrderItem> page = orderItemService.findAll(pageable);
@@ -106,6 +109,7 @@ public class OrderItemResource {
      */
     @GetMapping("/order-items/{id}")
     @Timed
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<OrderItem> getOrderItem(@PathVariable Long id) {
         log.debug("REST request to get OrderItem : {}", id);
         Optional<OrderItem> orderItem = orderItemService.findOne(id);
