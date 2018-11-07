@@ -51,8 +51,8 @@ public class CustomerResourceIntTest {
     private static final Gender DEFAULT_GENDER = Gender.MALE;
     private static final Gender UPDATED_GENDER = Gender.FEMALE;
 
-    private static final String DEFAULT_EMAIL = ";@*V.rO";
-    private static final String UPDATED_EMAIL = "~6@rx.zd";
+    private static final String DEFAULT_EMAIL = "]P@s~.8g";
+    private static final String UPDATED_EMAIL = "P4@*.U";
 
     private static final String DEFAULT_PHONE = "AAAAAAAAAA";
     private static final String UPDATED_PHONE = "BBBBBBBBBB";
@@ -71,7 +71,7 @@ public class CustomerResourceIntTest {
 
     @Autowired
     private CustomerRepository customerRepository;
-    
+
     @Autowired
     private CustomerService customerService;
 
